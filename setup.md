@@ -21,6 +21,10 @@
 
 
 # Run model testing
-	
+
 	python test.py
 
+# Install Jupyter Notebook
+	
+	pip install jupyterlab
+	jupyter-lab
