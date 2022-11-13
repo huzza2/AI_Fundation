@@ -1,5 +1,3 @@
 *.h5
 train/
 submission.csv
-input_data/**
-input_test/**

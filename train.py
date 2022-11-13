@@ -122,6 +122,6 @@ def plot_result(history):
 
     plt.show()
 
-create_training_and_validation_set(0.8, 10000)
+create_training_and_validation_set(0.8, 1000)
 result_history = train_model()
 plot_result(result_history)
