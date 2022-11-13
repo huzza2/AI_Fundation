@@ -93,9 +93,9 @@ def train_model():
 
     history = model.fit(train_iterator,
                         validation_data=validation_iterator,
-                        steps_per_epoch=100,
-                        epochs=50,
-                        validation_steps=50)
+                        steps_per_epoch=50,
+                        epochs=20,
+                        validation_steps=25)
 
     model.save('dogs-vs-cats.h5')
 

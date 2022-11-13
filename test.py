@@ -23,18 +23,22 @@ def load_and_predict():
         batch_size=1)
 
     ids = []
+    file_list = []
+    index = 0
     for filename in test_iterator.filenames:
-        ids.append(int(os.path.basename(filename).split('.')[0]))
+        ids.append(index)
+        index = index + 1
+        file_list.append(filename)
 
     predict_result = model.predict(test_iterator, steps=len(test_iterator.filenames))
     predictions = []
     for index, prediction in enumerate(predict_result):
-        predictions.append([ids[index], prediction[0]])
+        predictions.append([ids[index], file_list[index], prediction[0]])
     predictions.sort()
 
     return predictions
 
 predictions = load_and_predict()
-df = pd.DataFrame(data=predictions, index=range(1, 12501), columns=['id', 'label'])
+df = pd.DataFrame(data=predictions, columns=['id', 'file_name', 'label'])
 df = df.set_index(['id'])
 df.to_csv('submission.csv')
